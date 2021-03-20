@@ -32,30 +32,25 @@ perfil = ProfileWLaminated(
 
 buckl = Buckling(
     kx = 1,
-    lx = 400,
+    lx = 500,
     ky = 1,
-    ly = 400,
+    ly = 500,
     kz = 1,
     lz = 400
 )
 
-kxlx = buckl.kxlx_
-kyly = buckl.kyly_
-kzlz = buckl.kzlz_
 
 if __name__ == '__main__':
 
     print('E.1.1 - Seções com dupla sim. ou simétricas em rel. a um ponto')
     
     Pcr = AxialElasticBucklingForce(
-        E = steel.E_,
-        G = steel.G_,
-        Cw = perfil.cw_,
-        It = perfil.it_,
-        Ix = perfil.ix_,
-        Kxlx = kxlx,
-        Kyly = kyly,
-        Kzlz = kzlz
+        steel,
+        perfil,
+        buckl,
+        case = 'E.1.1'
     )
 
     print(Pcr.Nex())
+    print(Pcr.Ney())
+    print(Pcr.Nez())

@@ -1,17 +1,27 @@
+from math import pi
+
 class AxialElasticBucklingForce:
 
-    def __init__(self, E, G, Cw, It, Ix, Kxlx, Kyly, Kzlz, case = 'E.1.1'):
-        self.E_ = E
-        self.G_ = G
-        self.Cw_ = Cw
-        self.It_ = It
-        self.Ix_ = Ix
-        self.Kxlx_ = Kxlx
-        self.Kyly_ = Kyly
-        self.Kzlz_ = Kzlz
+    def __init__(self, steel, profile, buckling, case):
+        self.steel_ = steel
+        self.profile_ = profile
+        self.buckling_ = buckling
         self.case_ = case
-    
     def Nex(self):
         if self.case_ == 'E.1.1':
-            Nex = ((pi ** 2) * (self.E_ * 0.1) * self.Ix_ / ((self.Kxlx_) ** 2))
+            Nex = ((pi ** 2) * (self.steel_.E_ * 0.1) * self.profile_.ix_ /
+            ((self.buckling_.kxlx_) ** 2))
+
             return Nex
+    
+    def Ney(self):
+        if self.case_ == 'E.1.1':
+            Ney = ((pi ** 2) * (self.steel_.E_ * 0.1) * self.profile_.iy_ /
+            ((self.buckling_.kyly_) ** 2))
+
+            return Ney
+
+    def Nez(self):
+        if self.case_ == 'E.1.1':
+            ro = (((self.profile_.rx_) ** 2) + ((self.profile_.ry_) ** 2)) ** 0.5
+            print(ro)
