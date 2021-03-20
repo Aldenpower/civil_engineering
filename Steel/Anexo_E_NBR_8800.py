@@ -24,4 +24,9 @@ class AxialElasticBucklingForce:
     def Nez(self):
         if self.case_ == 'E.1.1':
             ro = (((self.profile_.rx_) ** 2) + ((self.profile_.ry_) ** 2)) ** 0.5
-            print(ro)
+
+            Nez = (1 / (ro ** 2)) * (((pi ** 2) * self.steel_.E_ * 0.1 *
+            self.profile_.cw_) / ((self.buckling_.kzlz_) ** 2) + 
+            (self.steel_.G_ * self.profile_.it_))
+
+            return Nez
