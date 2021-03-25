@@ -6,7 +6,7 @@ class Steel:
     fyk_(Mpa)
 
     """
-    def __init__(self, fyk, coefmin = 1.1, E = 200000, G = 78850):
+    def __init__(self, fyk, coefmin = 1.1, E = 203873.6, G = 78850):
         self.E_ = E
         self.G_ = G
         self.fyk_ = fyk

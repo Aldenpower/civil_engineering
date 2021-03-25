@@ -14,7 +14,7 @@ profilewlaminated = pd.read_csv('ProfileWLaminated.csv')
 steel = Steel(250)
 
     # PROFILE
-profile_number = 0
+profile_number = 2
 
 perfil = ProfileWLaminated(
     name = profilewlaminated['name'].iloc[profile_number],
@@ -41,11 +41,11 @@ perfil = ProfileWLaminated(
     # BUCKLING
 buckl = Buckling(
     kx = 1,
-    lx = 500,
+    lx = 300,
     ky = 1,
-    ly = 500,
+    ly = 300,
     kz = 1,
-    lz = 400
+    lz = 300
 )
 
 
@@ -59,7 +59,43 @@ if __name__ == '__main__':
         buckl,
         case = 'E.1.1'
     )
+    #print(perfil.name_)
+    #print(Pcr.Nex())
+    #print(Pcr.Ney())
+    #print(Pcr.Nez())
 
-    print(Pcr.Nex())
-    print(Pcr.Ney())
-    print(Pcr.Nez())
+    for pf in range(0, len(profilewlaminated)):
+        perfil2 = ProfileWLaminated(
+        name = profilewlaminated['name'].iloc[pf],
+        weight = profilewlaminated['weight'].iloc[pf],
+        d = profilewlaminated['d'].iloc[pf],
+        bf = profilewlaminated['bf'].iloc[pf],
+        tw = profilewlaminated['tw'].iloc[pf],
+        tf = profilewlaminated['tf'].iloc[pf],
+        h = profilewlaminated['h'].iloc[pf],
+        d_linha = profilewlaminated['d_linha'].iloc[pf],
+        ag = profilewlaminated['ag'].iloc[pf],
+        ix = profilewlaminated['ix'].iloc[pf],
+        wx = profilewlaminated['wx'].iloc[pf],
+        rx = profilewlaminated['rx'].iloc[pf],
+        zx = profilewlaminated['zx'].iloc[pf],
+        iy = profilewlaminated['iy'].iloc[pf],
+        wy = profilewlaminated['wy'].iloc[pf],
+        ry = profilewlaminated['ry'].iloc[pf],
+        zy = profilewlaminated['zy'].iloc[pf],
+        rt = profilewlaminated['rt'].iloc[pf],
+        it = profilewlaminated['it'].iloc[pf],
+        cw = profilewlaminated['Cw'].iloc[pf]
+        )
+
+        Pcr2 = AxialElasticBucklingForce(
+        steel,
+        perfil2,
+        buckl,
+        case = 'E.1.1'
+        )
+
+        print(perfil2.name_)
+        print(Pcr2.Nex())
+        print(Pcr2.Ney())
+        print(Pcr2.Nez())
