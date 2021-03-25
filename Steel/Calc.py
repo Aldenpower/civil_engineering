@@ -3,33 +3,42 @@ from steel_classes import Steel
 from buckling_classes import Buckling
 from Anexo_E_NBR_8800 import AxialElasticBucklingForce
 from math import pi
+import pandas as pd
+
+# PROFILE LOADING
+profilewlaminated = pd.read_csv('ProfileWLaminated.csv')
 
 # OBJECTS
+
+    # STEEL
 steel = Steel(250)
 
-perfil = ProfileWLaminated(
-    name = 'W150x13',
-    weight = 13,
-    d = 148,
-    bf = 100,
-    tw = 4.3,
-    tf = 4.9,
-    h = 138,
-    d_linha = 118,
-    ag = 16.6,
-    ix = 635,
-    wx = 85.8,
-    rx = 6.2,
-    zx = 96.4,
-    iy = 82,
-    wy = 16.4,
-    ry = 2.2,
-    zy = 25.5,
-    rt = 2.6,
-    it = 1.7,
-    cw = 4181
-)
+    # PROFILE
+profile_number = 0
 
+perfil = ProfileWLaminated(
+    name = profilewlaminated['name'].iloc[profile_number],
+    weight = profilewlaminated['weight'].iloc[profile_number],
+    d = profilewlaminated['d'].iloc[profile_number],
+    bf = profilewlaminated['bf'].iloc[profile_number],
+    tw = profilewlaminated['tw'].iloc[profile_number],
+    tf = profilewlaminated['tf'].iloc[profile_number],
+    h = profilewlaminated['h'].iloc[profile_number],
+    d_linha = profilewlaminated['d_linha'].iloc[profile_number],
+    ag = profilewlaminated['ag'].iloc[profile_number],
+    ix = profilewlaminated['ix'].iloc[profile_number],
+    wx = profilewlaminated['wx'].iloc[profile_number],
+    rx = profilewlaminated['rx'].iloc[profile_number],
+    zx = profilewlaminated['zx'].iloc[profile_number],
+    iy = profilewlaminated['iy'].iloc[profile_number],
+    wy = profilewlaminated['wy'].iloc[profile_number],
+    ry = profilewlaminated['ry'].iloc[profile_number],
+    zy = profilewlaminated['zy'].iloc[profile_number],
+    rt = profilewlaminated['rt'].iloc[profile_number],
+    it = profilewlaminated['it'].iloc[profile_number],
+    cw = profilewlaminated['Cw'].iloc[profile_number]
+)
+    # BUCKLING
 buckl = Buckling(
     kx = 1,
     lx = 500,
