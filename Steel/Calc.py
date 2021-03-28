@@ -53,6 +53,7 @@ if __name__ == '__main__':
 
     print('E.1.1 - Seções com dupla sim. ou simétricas em rel. a um ponto')
     
+    '''
     Pcr = AxialElasticBucklingForce(
         steel,
         perfil,
@@ -63,6 +64,8 @@ if __name__ == '__main__':
     #print(Pcr.Nex())
     #print(Pcr.Ney())
     #print(Pcr.Nez())
+
+    '''
 
     for pf in range(0, len(profilewlaminated)):
         perfil2 = ProfileWLaminated(
@@ -96,6 +99,6 @@ if __name__ == '__main__':
         )
 
         print(perfil2.name_)
-        print(Pcr2.Nex())
-        print(Pcr2.Ney())
-        print(Pcr2.Nez())
+        print(Pcr2.Nex(report = True))
+        print(Pcr2.Ney(report = True))
+        print(Pcr2.Nez(report = True))

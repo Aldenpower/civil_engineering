@@ -19,7 +19,7 @@ class AxialElasticBucklingForce:
                 tension = ((pi ** 2) * (self.steel_.E_ * 0.1) /
                 (buckling_reason ** 2))
 
-                print('Buckling reason', round(buckling_reason, 2),
+                print('Nex', round(Nex, 2), 'Buckling reason', round(buckling_reason, 2),
                 'Tension', round(tension, 2), sep = '\n')
 
             #kN
@@ -37,7 +37,7 @@ class AxialElasticBucklingForce:
                 tension = ((pi ** 2) * (self.steel_.E_ * 0.1) /
                 (buckling_reason ** 2))
 
-                print('Buckling reason', round(buckling_reason, 2),
+                print('Ney', round(Ney, 2), 'Buckling reason', round(buckling_reason, 2),
                 'Tension', round(tension, 2), sep = '\n')
 
             #kN
@@ -57,7 +57,7 @@ class AxialElasticBucklingForce:
                 tension = ((pi ** 2) * (self.steel_.E_ * 0.1) /
                 (buckling_reason ** 2))
 
-                print('Buckling reason', round(buckling_reason, 2),
+                print('Nez', round(Nez, 2), 'Buckling reason', round(buckling_reason, 2),
                 'Tension', round(tension, 2), sep = '\n')
             #kN
             return round(Nez, 2)
